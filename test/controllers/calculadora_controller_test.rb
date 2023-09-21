@@ -7,3 +7,4 @@ class CalculadoraControllerTest < ActionController::TestCase
     assert_equal 8, assigns(:resultado)
   end
 end
+
