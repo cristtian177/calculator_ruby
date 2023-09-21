@@ -4,7 +4,7 @@ require 'test_helper'
 
 class CalculadoraIntegrationTest < ActionDispatch::IntegrationTest
   test "debería sumar dos números mediante una query" do
-    numero1 = 5
+    numero1 = 4
     numero2 = 3
     get "/calculadora/sumar?numero1=#{numero1}&numero2=#{numero2}"
     
