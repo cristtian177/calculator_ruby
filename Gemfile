@@ -5,7 +5,7 @@ gem 'rails-controller-testing'
 gem 'capybara'
 
 
-ruby "3.2.2"
+ruby "3.1.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
