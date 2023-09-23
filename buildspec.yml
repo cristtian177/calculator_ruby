@@ -3,9 +3,19 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo "Installing dependencies..."
-      - rbenv global 3.0 # Configura la versión de Ruby
-      - bundle install --deployment      
+      - echo "Installing rbenv..."
+      - git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+      - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+      - echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+      - source ~/.bashrc
+      - rbenv --version
+
+  install:
+    commands:
+      - echo "Installing Ruby 3.0..."
+      - rbenv install 3.0
+      - rbenv global 3.0
+      - ruby -v
 
   build:
     commands:
