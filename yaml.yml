@@ -1,9 +1,26 @@
 name: CI/CD Pipeline
-
 on:
   push:
     branches:
       - master
+phases:
+  install:
+    runtime-versions:
+      ruby: 3.0  # Reemplaza con la versión de Ruby que estás usando
+  pre_build:
+    commands:
+      - gem install bundler
+      - bundle install
+      - echo "Installing dependencies"
+      - bundle install --path vendor/bundle
+  build:
+    commands:
+      - echo "Building the application"
+  post_build:
+    commands:
+      - echo "Post build steps"
+artifacts:
+  files: '**/*'
 
 jobs:
   build:
