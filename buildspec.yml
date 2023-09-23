@@ -7,6 +7,15 @@ phases:
       - bundle install --deployment
 
   build:
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Set up Ruby
+          uses: actions/setup-ruby@v1
+          with:
+            ruby-version: 3.0
+
     commands:
       - echo "Running tests..."
       - bundle exec rake test
