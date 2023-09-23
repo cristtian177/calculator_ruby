@@ -16,8 +16,8 @@ phases:
   install:
     commands:
       - echo "Installing Ruby 3.0..."
-      - rbenv install 3.0
-      - rbenv global 3.0
+      - rbenv install 3.0.0
+      - rbenv global 3.0.0
       - ruby -v
 
   build:
