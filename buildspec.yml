@@ -8,13 +8,13 @@ phases:
         - rbenv install 3.0.0
         - rbenv global 3.0.0
         - ruby -v
-        
+
   pre_build:
     commands:
       - echo "Installing dependencies..."
       - rbenv global 3.0.0 # Configura la versión de Ruby
-      - bundle install --deployment      
-
+      - gem install bundler
+      - bundle install 
   build:
     commands:
       - echo "Running tests..."
