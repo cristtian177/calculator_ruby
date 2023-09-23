@@ -5,14 +5,14 @@ phases:
   install:
       commands:
         - echo "Installing Ruby 3.0..."
-        - rbenv install 3.2.2
-        - rbenv global 3.2.2
+        - rbenv install 3.0.0
+        - rbenv global 3.0.0
         - ruby -v
 
   pre_build:
     commands:
       - echo "Installing dependencies..."
-      - rbenv global 3.2.2 # Configura la versión de Ruby
+      - rbenv global 3.0.0 # Configura la versión de Ruby
       - gem install bundler
       - bundle install 
   build:
