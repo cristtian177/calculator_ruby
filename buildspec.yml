@@ -1,28 +1,21 @@
-name: CI/CD Pipeline
+phases:
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - gem install bundler
+      - bundle instal
+      - bundle install --deployment
 
-on:
-  push:
-    branches:
-      - master
-
-jobs:
   build:
-    runs-on: ubuntu-latest
+    commands:
+      - echo "Running tests..."
+      - bundle exec rake test
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  post_build:
+    commands:
+      - echo "Building artifacts..."
+      # Aquí puedes realizar cualquier acción adicional, como la creación de artefactos o la preparación de archivos para despliegue.
 
-      - name: Set up Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 3.0
-
-      - name: Install dependencies
-        run: |
-          gem install bundler
-          bundle install
-
-      - name: Run tests
-        run: |
-          bundle exec rake test
+artifacts:
+  files:
+    - '**/*'  # Incluye todos los archivos en el resultado final, ajusta esto según tus necesidades.
