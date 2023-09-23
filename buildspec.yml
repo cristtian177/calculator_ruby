@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - bundle install --deployment
+
+  build:
+    commands:
+      - echo "Running tests..."
+      - bundle exec rake test
+
+  post_build:
+    commands:
+      - echo "Building artifacts..."
+      # Aquí puedes realizar cualquier acción adicional, como la creación de artefactos o la preparación de archivos para despliegue.
+
+artifacts:
+  files:
+    - '**/*'  # Incluye todos los archivos en el resultado final, ajusta esto según tus necesidades.
