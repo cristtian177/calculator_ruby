@@ -4,6 +4,7 @@ phases:
   pre_build:
     commands:
       - echo "Installing dependencies..."
+      - rbenv local 3.0 # Configura la versión de Ruby
       - bundle install --deployment      
 
   build:
